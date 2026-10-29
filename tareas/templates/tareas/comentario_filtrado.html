@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtrar comentarios</title>
+</head>
+<body>
+    <h1>Filtrar comentarios</h1>
+
+    <form method="get">
+        <label>Palabra inicial:</label>
+        <input type="text" name="palabra" value="{{ palabra }}" required>
+
+        <label>Año:</label>
+        <input type="number" name="anio" value="{{ anio }}" required>
+
+        <button type="submit">Buscar</button>
+    </form>
+
+    <ul>
+        {% for comentario in comentarios %}
+            <li>
+                {{ comentario.contenido }} -
+                {{ comentario.autor }} -
+                {{ comentario.fecha_comentario }}
+            </li>
+        {% empty %}
+            <li>No se encontraron comentarios.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Volver al inicio</a>
+</body>
+</html>

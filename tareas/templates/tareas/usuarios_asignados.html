@@ -1,0 +1,11 @@
+<h1>Usuarios asignados a {{ tarea }}</h1>
+
+<ul>
+    {% for asignacion in asignaciones %}
+        <li>{{ asignacion.usuario }}</li>
+    {% empty %}
+        <li>No hay usuarios asignados.</li>
+    {% endfor %}
+</ul>
+
+<a href="/">Volver al inicio</a>

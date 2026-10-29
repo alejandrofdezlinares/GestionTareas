@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar observaciones</title>
+</head>
+<body>
+    <h1>Buscar tareas por observaciones</h1>
+
+    <form method="get">
+        <input type="text" name="q" value="{{ termino }}" placeholder="Texto a buscar">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <ul>
+        {% for tarea in tareas %}
+            <li>{{ tarea }}</li>
+        {% empty %}
+            <li>No se encontraron tareas.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Volver al inicio</a>
+</body>
+</html>

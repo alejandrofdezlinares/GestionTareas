@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de tareas</title>
+</head>
+<body>
+    <h1>Gestión de tareas</h1>
+
+    <h2>Ejercicios de URLs, vistas y QuerySets</h2>
+
+    <ul>
+        <li><a href="/proyectos/">Lista de proyectos</a></li>
+        <li><a href="/tareas/por-observaciones/">Tareas por observaciones</a></li>
+        <li><a href="/tareas/completadas-entre-anios/">Tareas completadas entre años</a></li>
+        <li><a href="/usuarios/sin-tareas/">Usuarios sin tareas asignadas</a></li>
+    </ul>
+
+    <h3>Proyectos existentes</h3>
+    <ul>
+        {% for proyecto in proyectos %}
+            <li>
+                {{ proyecto.nombre }}
+                - <a href="/proyectos/{{ proyecto.id }}/tareas/">
+                    Ver tareas
+                </a>
+                - <a href="/proyectos/{{ proyecto.id }}/ultimo-comentario/">
+                    Último comentario
+                </a>
+                - <a href="/proyectos/{{ proyecto.id }}/etiquetas/">
+                    Ver etiquetas
+                </a>
+            </li>
+        {% empty %}
+            <li>No hay proyectos registrados.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Tareas existentes</h3>
+    <ul>
+        {% for tarea in tareas %}
+            <li>
+                {{ tarea.titulo }}
+                - <a href="/tareas/{{ tarea.id }}/usuarios/">
+                    Ver usuarios asignados
+                </a>
+                - <a href="/tareas/{{ tarea.id }}/comentarios/?palabra=Buen&anio=2024">
+                    Buscar comentarios
+                </a>
+            </li>
+        {% empty %}
+            <li>No hay tareas registradas.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

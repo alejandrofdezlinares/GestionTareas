@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Etiquetas del proyecto</title>
+</head>
+<body>
+    <h1>Etiquetas de {{ proyecto.nombre }}</h1>
+
+    <ul>
+        {% for etiqueta in etiquetas %}
+            <li>{{ etiqueta.nombre }}</li>
+        {% empty %}
+            <li>No hay etiquetas para este proyecto.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Volver al inicio</a>
+</body>
+</html>

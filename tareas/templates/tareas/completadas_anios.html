@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas completadas entre años</title>
+</head>
+<body>
+    <h1>Tareas completadas entre años</h1>
+
+    <form method="get" action="">
+        <label for="anio_inicio">Año inicial:</label>
+        <input type="number" id="anio_inicio" name="anio_inicio" value="{{ anio_inicio }}" required>
+
+        <label for="anio_fin">Año final:</label>
+        <input type="number" id="anio_fin" name="anio_fin" value="{{ anio_fin }}" required>
+
+        <button type="submit">Buscar</button>
+    </form>
+
+    <h2>Resultados</h2>
+
+    {% if tareas %}
+        <ul>
+            {% for tarea in tareas %}
+                <li>
+                    <strong>{{ tarea.titulo }}</strong>
+                    <p>Estado: {{ tarea.estado }}</p>
+                    <p>Fecha de creación: {{ tarea.fecha_creacion }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se han encontrado tareas completadas en ese intervalo.</p>
+    {% endif %}
+
+    <a href="/">Volver al inicio</a>
+</body>
+</html>
