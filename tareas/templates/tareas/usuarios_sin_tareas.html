@@ -1,20 +1,25 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Usuarios sin tareas</title>
-</head>
-<body>
-    <h1>Usuarios sin tareas asignadas</h1>
+{% extends 'tareas/base.html' %}
 
+{% block cabecera %}
+<h1>Usuarios sin tareas</h1>
+{% endblock %}
+
+{% block contenido %}
+
+{% if not usuarios %}
+    <p>No hay usuarios sin tareas asignadas.</p>
+{% else %}
     <ul>
         {% for usuario in usuarios %}
-            <li>{{ usuario.nombre }}</li>
+            {% include 'tareas/parciales/usuario_item.html' %}
         {% empty %}
             <li>No se encontraron usuarios sin tareas.</li>
         {% endfor %}
     </ul>
+{% endif %}
 
-    <a href="/">Volver al inicio</a>
-</body>
-</html>
+<p>Total de usuarios sin tareas: {{ usuarios|length }}</p>
+
+<a href="{% url 'inicio' %}">Volver al inicio</a>
+
+{% endblock %}

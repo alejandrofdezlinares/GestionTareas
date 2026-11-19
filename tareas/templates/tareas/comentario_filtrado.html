@@ -1,34 +1,29 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Filtrar comentarios</title>
-</head>
-<body>
-    <h1>Filtrar comentarios</h1>
+{% extends 'tareas/base.html' %}
 
-    <form method="get">
-        <label>Palabra inicial:</label>
-        <input type="text" name="palabra" value="{{ palabra }}" required>
+{% block cabecera %}
+<h1>Filtrar comentarios</h1>
+{% endblock %}
 
-        <label>Año:</label>
-        <input type="number" name="anio" value="{{ anio }}" required>
+{% block contenido %}
 
-        <button type="submit">Buscar</button>
-    </form>
+<form method="get">
+    <label>Palabra inicial:</label>
+    <input type="text" name="palabra" value="{{ palabra }}" required>
 
-    <ul>
-        {% for comentario in comentarios %}
-            <li>
-                {{ comentario.contenido }} -
-                {{ comentario.autor }} -
-                {{ comentario.fecha_comentario }}
-            </li>
-        {% empty %}
-            <li>No se encontraron comentarios.</li>
-        {% endfor %}
-    </ul>
+    <label>Año:</label>
+    <input type="number" name="anio" value="{{ anio }}" required>
 
-    <a href="/">Volver al inicio</a>
-</body>
-</html>
+    <button type="submit">Buscar</button>
+</form>
+
+<ul>
+    {% for comentario in comentarios %}
+        {% include 'tareas/parciales/comentario_item.html' %}
+    {% empty %}
+        <li>No se encontraron comentarios.</li>
+    {% endfor %}
+</ul>
+
+<a href="/">Volver al inicio</a>
+
+{% endblock %}

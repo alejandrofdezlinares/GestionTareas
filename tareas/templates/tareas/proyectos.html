@@ -1,20 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de proyectos</title>
-</head>
-<body>
-    <h1>Lista de proyectos</h1>
+{% extends 'tareas/base.html' %}
 
-    <ul>
-        {% for proyecto in proyectos %}
-            <li>{{ proyecto.nombre }}</li>
-        {% empty %}
-            <li>No hay proyectos.</li>
-        {% endfor %}
-    </ul>
+{% block cabecera %}
+<h1>Lista de proyectos</h1>
+{% endblock %}
 
-    <a href="/">Volver al inicio</a>
-</body>
-</html>
+{% block contenido %}
+
+<ul>
+    {% for proyecto in proyectos %}
+        {% include 'tareas/parciales/proyecto_item.html' %}
+    {% empty %}
+        <li>No hay proyectos.</li>
+    {% endfor %}
+</ul>
+
+<p>Total de proyectos: {{ proyectos|length }}</p>
+
+<a href="{% url 'inicio' %}">Volver al inicio</a>
+
+{% endblock %}

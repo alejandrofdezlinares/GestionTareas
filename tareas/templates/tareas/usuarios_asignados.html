@@ -1,11 +1,21 @@
-<h1>Usuarios asignados a {{ tarea }}</h1>
+{% extends 'tareas/base.html' %}
+
+{% block cabecera %}
+<h1>Usuarios asignados</h1>
+{% endblock %}
+
+{% block contenido %}
+
+<h2>{{ tarea }}</h2>
 
 <ul>
     {% for asignacion in asignaciones %}
-        <li>{{ asignacion.usuario }}</li>
+        {% include 'tareas/parciales/asignacion_item.html' %}
     {% empty %}
         <li>No hay usuarios asignados.</li>
     {% endfor %}
 </ul>
 
 <a href="/">Volver al inicio</a>
+
+{% endblock %}

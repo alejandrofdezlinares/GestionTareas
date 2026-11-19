@@ -1,0 +1,31 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Tareas</title>
+    <link rel="stylesheet" href="{% static 'tareas/css/estilos.css' %}">
+</head>
+<body>
+
+    {% include 'tareas/navbar.html' %}
+
+    <header>
+    <img src="{% static 'tareas/img/logo.png' %}" alt="Logo Gestión de Tareas" width="80">
+
+    {% block cabecera %}
+    <h1>Gestión de Tareas</h1>
+    {% endblock %}
+    </header>
+
+    <main>
+        {% block contenido %}
+        {% endblock %}
+    </main>
+
+    {% include 'tareas/footer.html' %}
+
+    <script src="{% static 'tareas/js/script.js' %}"></script>
+</body>
+</html>

@@ -1,20 +1,29 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Tareas del proyecto</title>
-</head>
-<body>
-    <h1>Tareas de {{ proyecto.nombre }}</h1>
+{% extends 'tareas/base.html' %}
 
-    <ul>
-        {% for tarea in tareas %}
-            <li>{{ tarea }}</li>
-        {% empty %}
-            <li>Este proyecto no tiene tareas.</li>
-        {% endfor %}
-    </ul>
+{% block cabecera %}
+<h1>Tareas del proyecto</h1>
+{% endblock %}
 
-    <a href="/">Volver al inicio</a>
-</body>
-</html>
+{% block contenido %}
+
+<h2>{{ proyecto.nombre }}</h2>
+
+<ul>
+    {% for tarea in tareas %}
+        {% include 'tareas/parciales/tarea_simple.html' %}
+
+        {% if tarea.estado == 'Completada' %}
+            <p>Esta tarea está completada.</p>
+        {% endif %}
+
+        {% if tarea.estado != 'Completada' %}
+            <p>Esta tarea está pendiente de completar.</p>
+        {% endif %}
+    {% empty %}
+        <li>Este proyecto no tiene tareas.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'inicio' %}">Volver al inicio</a>
+
+{% endblock %}

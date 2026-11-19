@@ -1,0 +1,5 @@
+<li>
+    {{ tarea.titulo|upper }}
+    - <a href="{% url 'usuarios_asignados' tarea.id %}">Ver usuarios asignados</a>
+    - <a href="{% url 'comentarios_filtrados' %}?palabra=Buen&anio=2024">Buscar comentarios</a>
+</li>

@@ -1,40 +1,35 @@
+{% extends 'tareas/base.html' %}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tareas completadas entre años</title>
-</head>
-<body>
-    <h1>Tareas completadas entre años</h1>
+{% block cabecera %}
+<h1>Tareas completadas entre años</h1>
+{% endblock %}
 
-    <form method="get" action="">
-        <label for="anio_inicio">Año inicial:</label>
-        <input type="number" id="anio_inicio" name="anio_inicio" value="{{ anio_inicio }}" required>
+{% block contenido %}
 
-        <label for="anio_fin">Año final:</label>
-        <input type="number" id="anio_fin" name="anio_fin" value="{{ anio_fin }}" required>
+<form method="get" action="">
+    <label for="anio_inicio">Año inicial:</label>
+    <input type="number" id="anio_inicio" name="anio_inicio" value="{{ anio_inicio }}" required>
 
-        <button type="submit">Buscar</button>
-    </form>
+    <label for="anio_fin">Año final:</label>
+    <input type="number" id="anio_fin" name="anio_fin" value="{{ anio_fin }}" required>
 
-    <h2>Resultados</h2>
+    <button type="submit">Buscar</button>
+</form>
 
-    {% if tareas %}
-        <ul>
-            {% for tarea in tareas %}
-                <li>
-                    <strong>{{ tarea.titulo }}</strong>
-                    <p>Estado: {{ tarea.estado }}</p>
-                    <p>Fecha de creación: {{ tarea.fecha_creacion }}</p>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No se han encontrado tareas completadas en ese intervalo.</p>
-    {% endif %}
+<h2>Resultados</h2>
 
-    <a href="/">Volver al inicio</a>
-</body>
-</html>
+{% if tareas %}
+    <ul>
+        {% for tarea in tareas %}
+            {% include 'tareas/parciales/tarea_completada_item.html' %}
+        {% empty %}
+            <li>No hay tareas completadas.</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No se han encontrado tareas completadas en ese intervalo.</p>
+{% endif %}
+
+<a href="{% url 'inicio' %}">Volver al inicio</a>
+
+{% endblock %}

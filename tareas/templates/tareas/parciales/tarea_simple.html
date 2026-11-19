@@ -1,0 +1,11 @@
+<li>
+    {{ tarea.titulo|title }}
+
+    {% if tarea.estado == 'Completada' %}
+        - Tarea finalizada
+    {% endif %}
+
+    {% if tarea.estado != 'Completada' %}
+        - Tarea pendiente de finalizar
+    {% endif %}
+</li>

@@ -1,0 +1,7 @@
+<li>
+    {{ proyecto.nombre|title }}
+    - Duración estimada: {{ proyecto.duracion_estimada|floatformat:2 }} horas
+    - <a href="{% url 'tareas_proyecto' proyecto.id %}">Ver tareas</a>
+    - <a href="{% url 'ultimo_comentario' proyecto.id %}">Último comentario</a>
+    - <a href="{% url 'etiquetas_proyecto' proyecto.id %}">Ver etiquetas</a>
+</li>

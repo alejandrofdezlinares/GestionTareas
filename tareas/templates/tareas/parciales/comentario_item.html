@@ -1,0 +1,6 @@
+<li>
+    {{ comentario.contenido|default:"Sin contenido"|truncatechars:50 }}
+    - {{ comentario.autor }}
+    - {{ comentario.fecha_comentario|date:"d/m/Y" }}
+    - {{ comentario.fecha_comentario|time:"H:i" }}
+</li>

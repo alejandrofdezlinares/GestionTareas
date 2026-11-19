@@ -1,25 +1,23 @@
+{% extends 'tareas/base.html' %}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Último usuario que comentó</title>
-</head>
-<body>
-    <h1>Último usuario que comentó en el proyecto</h1>
+{% block cabecera %}
+<h1>Último usuario que comentó en el proyecto</h1>
+{% endblock %}
 
-    <h2>{{ proyecto.nombre }}</h2>
+{% block contenido %}
 
-    {% if usuario %}
-        <p><strong>Usuario:</strong> {{ usuario }}</p>
-        <p><strong>Tarea:</strong> {{ comentario.tarea }}</p>
-        <p><strong>Fecha del comentario:</strong> {{ comentario.fecha_comentario }}</p>
-        <p><strong>Comentario:</strong> {{ comentario.contenido }}</p>
-    {% else %}
-        <p>Este proyecto todavía no tiene comentarios.</p>
-    {% endif %}
+<h2>{{ proyecto.nombre }}</h2>
 
-    <a href="/">Volver al inicio</a>
-</body>
-</html>
+{% if usuario or comentario %}
+    <p><strong>Usuario:</strong> {{ usuario|default:"Desconocido" }}</p>
+    <p><strong>Tarea:</strong> {{ comentario.tarea }}</p>
+    <p><strong>Fecha del comentario:</strong> {{ comentario.fecha_comentario|date:"d/m/Y" }}</p>
+    <p><strong>Hora:</strong> {{ comentario.fecha_comentario|time:"H:i" }}</p>
+    <p><strong>Comentario:</strong> {{ comentario.contenido|default:"Sin contenido"|truncatechars:100 }}</p>
+{% else %}
+    <p>Este proyecto todavía no tiene comentarios.</p>
+{% endif %}
+
+<a href="{% url 'inicio' %}">Volver al inicio</a>
+
+{% endblock %}
