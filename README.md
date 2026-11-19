@@ -65,10 +65,10 @@ GestionTareas/
 │   ├── tests.py                         # Pruebas de funcionamiento
 │   └── views.py                         # Lógica y gestión de vistas
 │
-├── manage.py                             # Herramienta de administración Django
-├── seed.py                               # Script para cargar datos iniciales
-├── db.sqlite3                            # Base de datos SQLite
-└── .gitignore                            # Archivos excluidos de Git
+├── manage.py                            # Herramienta de administración Django
+├── seed.py                              # Script para cargar datos iniciales
+├── db.sqlite3                           # Base de datos SQLite
+└── .gitignore                           # Archivos excluidos de Git
 ```
 
 **## Templates y reutilización**
