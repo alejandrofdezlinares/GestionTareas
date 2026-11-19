@@ -6,34 +6,34 @@ Permite a los usuarios gestionar, organizar y realizar el seguimiento de sus tar
 
 ```text
 GestionTareas/
-├── .venv/                             # Entorno virtual de Python
-├── gestion_tareas/                    # Configuración principa  l de Django
-│   ├── __pycache__/                   # Archivos compilados de Python
-│   ├── __init__.py                    # Identifica el directorio como paquete
-│   ├── asgi.py                        # Configuración para aplicaciones asíncronas
-│   ├── settings.py                    # Configuración global del proyecto
-│   ├── urls.py                        # Enrutamiento global de URLs
-│   └── wsgi.py                        # Configuración para servidores web
-├── tareas/                            # Aplicación principal
-│   ├── __pycache__/                   # Archivos compilados de Python
-│   ├── fixtures/                      # Datos de prueba y copias de seguridad
-│   ├── migrations/                    # Migraciones de la base de datos
-│   ├── templates/                     # Plantillas HTML
+├── .venv/                                  # Entorno virtual de Python
+├── gestion_tareas/                         # Configuración principa  l de Django
+│   ├── __pycache__/                        # Archivos compilados de Python
+│   ├── __init__.py                         # Identifica el directorio como paquete
+│   ├── asgi.py                             # Configuración para aplicaciones asíncronas
+│   ├── settings.py                         # Configuración global del proyecto
+│   ├── urls.py                             # Enrutamiento global de URLs
+│   └── wsgi.py                             # Configuración para servidores web
+├── tareas/                                 # Aplicación principal
+│   ├── __pycache__/                        # Archivos compilados de Python
+│   ├── fixtures/                           # Datos de prueba y copias de seguridad
+│   ├── migrations/                         # Migraciones de la base de datos
+│   ├── templates/                          # Plantillas HTML
 │   │   └── tareas/
-│   │       ├── errores/                  # Páginas de error personalizadas
-│   │       │   ├── 400.html              # Error de petición incorrecta
-│   │       │   ├── 403.html              # Error de acceso prohibido
-│   │       │   ├── 404.html              # Página no encontrada
-│   │       │   └── 500.html              # Error interno del servidor
+│   │       ├── errores/                    # Páginas de error personalizadas
+│   │       │   ├── 400.html                # Error de petición incorrecta
+│   │       │   ├── 403.html                # Error de acceso prohibido
+│   │       │   ├── 404.html                # Página no encontrada
+│   │       │   └── 500.html                # Error interno del servidor
 │   │       │
-│   │       ├── parciales/                # Templates reutilizables
-│   │       │   ├── proyecto_item.html    # Elemento de proyecto
-│   │       │   ├── tarea_item.html       # Elemento de tarea
-│   │       │   ├── tarea_simple.html     # Tarea simplificada
-│   │       │   ├── etiqueta_item.html    # Elemento de etiqueta
-│   │       │   ├── asignacion_item.html  # Elemento de asignación
-│   │       │   ├── usuario_item.html     # Elemento de usuario
-│   │       │   ├── comentario_item.html  # Elemento de comentario
+│   │       ├── parciales/                      # Templates reutilizables
+│   │       │   ├── proyecto_item.html          # Elemento de proyecto
+│   │       │   ├── tarea_item.html             # Elemento de tarea
+│   │       │   ├── tarea_simple.html           # Tarea simplificada
+│   │       │   ├── etiqueta_item.html          # Elemento de etiqueta
+│   │       │   ├── asignacion_item.html        # Elemento de asignación
+│   │       │   ├── usuario_item.html           # Elemento de usuario
+│   │       │   ├── comentario_item.html        # Elemento de comentario
 │   │       │   └── tarea_completada_item.html
 │   │       │
 │   │       ├── comentario_filtrado.html
