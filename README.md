@@ -39,25 +39,25 @@ GestionTareas/
 │   │       ├── comentario_filtrado.html
 │   │       ├── completadas_anios.html
 │   │       ├── etiquetas_proyecto.html
-│   │       ├── index.html               # Página principal
+│   │       ├── index.html                     # Página principal
 │   │       ├── observaciones.html
 │   │       ├── proyectos.html
 │   │       ├── tareas_proyecto.html
 │   │       ├── ultimo_comentario.html
 │   │       ├── usuarios_asignados.html
 │   │       ├── usuarios_sin_tareas.html
-│   │       ├── navbar.html              # Menú de navegación
-│   │       ├── footer.html              # Pie de página
-│   │       └── base.html                # Template base
+│   │       ├── navbar.html                    # Menú de navegación
+│   │       ├── footer.html                    # Pie de página
+│   │       └── base.html                      # Template base
 │   │
-│   ├── static/                          # Recursos estáticos
+│   ├── static/                                # Recursos estáticos
 │   │   └── tareas/
 │   │       ├── css/
-│   │       │   └── estilos.css          # Estilos de la web
+│   │       │   └── estilos.css                # Estilos de la web
 │   │       ├── js/
-│   │       │   └── script.js            # JavaScript
+│   │       │   └── script.js                  # JavaScript
 │   │       └── img/
-│   │           └── logo.png             # Logo de la aplicación
+│   │           └── logo.png                   # Logo de la aplicación
 │   │
 │   ├── admin.py                         # Configuración del administrador
 │   ├── apps.py                          # Configuración de la aplicación
